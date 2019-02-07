@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    private float moveSpeed = 10.0f;
+
+
+    private float moveSpeed = 5.0f;
     private float rotationSpeed = 100.0f;
     private float jumpSpeed = 8.0f;
     private float jumpForce = 4;
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody m_rb;
     private List<Collider> m_collisions = new List<Collider>();
+
 
     // Use this for initialization
     void Start()
