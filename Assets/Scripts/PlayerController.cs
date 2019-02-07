@@ -9,11 +9,9 @@ public class PlayerController : MonoBehaviour {
 
     private float moveSpeed = 5.0f;
     private float rotationSpeed = 100.0f;
-    private float jumpSpeed = 8.0f;
-    private float jumpForce = 4;
-    private float gravity = 20.0f;
+    private float jumpForce = 4.5f;
 
-    private float interpolation = 10;
+    private float interpolation = 10.0f;
     private float m_currentV = 0;
     private float m_currentH = 0;
 
@@ -124,13 +122,6 @@ public class PlayerController : MonoBehaviour {
     {
         float z = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
-
-        bool walk = Input.GetKey(KeyCode.LeftShift);
-
-        if (walk)
-        {
-            z *= moveSpeed;
-        }
 
         m_currentV = Mathf.Lerp(m_currentV, z, Time.deltaTime * interpolation);
         m_currentH = Mathf.Lerp(m_currentH, x, Time.deltaTime * interpolation);
