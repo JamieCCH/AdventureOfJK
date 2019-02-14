@@ -7,15 +7,14 @@ public class PlayerController : MonoBehaviour {
 
     private float moveSpeed = 2.0f;
     private float rotationSpeed = 100.0f;
-    private float jumpSpeed = 8.0f;
-    private float jumpForce = 4;
-    private float gravity = 20.0f;
+    private float jumpForce = 4.0f;
+    //private float gravity = 20.0f;
 
     private float interpolation = 10;
-    private float m_currentV = 0;
-    private float m_currentH = 0;
+    private float m_currentV = 0f;
+    private float m_currentH = 0f;
 
-    private float m_jumpTimeStamp = 0;
+    private float m_jumpTimeStamp = 0f;
     private float m_minJumpInterval = 0.25f;
 
     private bool isGrounded;
