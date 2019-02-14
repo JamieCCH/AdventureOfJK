@@ -12,10 +12,11 @@ public class PlayerController : MonoBehaviour {
     private float jumpForce = 4.5f;
 
     private float interpolation = 10.0f;
-    private float m_currentV = 0;
-    private float m_currentH = 0;
+    private float m_currentV = 0f;
+    private float m_currentH = 0f;
+    private Vector3 m_currentDirection = Vector3.zero;
 
-    private float m_jumpTimeStamp = 0;
+    private float m_jumpTimeStamp = 0f;
     private float m_minJumpInterval = 0.25f;
 
     private bool isGrounded;
@@ -26,7 +27,6 @@ public class PlayerController : MonoBehaviour {
     private List<Collider> m_collisions = new List<Collider>();
 
 
-    // Use this for initialization
     void Start()
     {
         playerAnim = gameObject.GetComponent<Animator>();
@@ -118,7 +118,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void MovementUpdate()
+    //removed it after milestone 1 feedback
+    private void TankMoveMode()
     {
         float z = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
@@ -130,9 +131,41 @@ public class PlayerController : MonoBehaviour {
         transform.Rotate(0, m_currentH * rotationSpeed * Time.deltaTime, 0);
 
         playerAnim.SetFloat("MoveSpeed", m_currentV);
+    }
+
+    private void DirectMoveMode()
+    {
+        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
+
+        Transform camera = GameObject.Find("Main Camera").GetComponent<Camera>().transform;
+
+        m_currentV = Mathf.Lerp(m_currentV, z, Time.deltaTime * interpolation);
+        m_currentH = Mathf.Lerp(m_currentH, x, Time.deltaTime * interpolation);
+
+        Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;
+
+        float directionLength = direction.magnitude;
+        direction.y = 0;
+        direction = direction.normalized * directionLength;
+
+        if (direction != Vector3.zero)
+        {
+            m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * interpolation);
+
+            transform.rotation = Quaternion.LookRotation(m_currentDirection);
+            transform.position += m_currentDirection * moveSpeed * Time.deltaTime;
+
+            playerAnim.SetFloat("MoveSpeed", direction.magnitude);
+        }
+    }
+
+
+    private void MovementUpdate()
+    {
+        DirectMoveMode();
 
         JumpingAndLanding();
-
     }
 
     void Update()

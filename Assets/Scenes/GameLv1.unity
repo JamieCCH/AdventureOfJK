@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 652846480}
   camTransform: {fileID: 652846480}
-  distance: 5
+  distance: 6
 --- !u!1 &552970369
 GameObject:
   m_ObjectHideFlags: 0
