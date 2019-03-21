@@ -9,11 +9,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public Transform lookAt;
     public Transform camTransform;
-    public float distance = 6.0f;
+    public float distance = 10.0f;
 
     private float currentX = 0.0f;
     private float currentY = 20.0f;
-
 
     private void Start()
     {
