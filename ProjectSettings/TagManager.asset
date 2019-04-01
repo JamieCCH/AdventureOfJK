@@ -8,6 +8,9 @@ TagManager:
   - Lightsaber
   - Stage
   - PlayerHead
+  - BallIcon
+  - Pickup
+  - TurretBullet
   layers:
   - Default
   - TransparentFX

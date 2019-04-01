@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
 public class PlayerController : MonoBehaviour {
-
-    GameObject gameManager;
 
     private float moveSpeed = 5.0f;
     private float rotationSpeed = 100.0f;
@@ -26,7 +25,6 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody m_rb;
     private List<Collider> m_collisions = new List<Collider>();
-
 
     public bool isFirstPerson = false;
 
@@ -158,12 +156,19 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         //In a smaller area, switch to first person view
-        isFirstPerson |= other.gameObject.name == "FirstPersonArea";
+        if (other.gameObject.name == "FirstPersonArea")
+        {
+            isFirstPerson = true;
+        }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
-        isFirstPerson &= other.gameObject.name != "FirstPersonArea";
+        if (other.gameObject.name == "FirstPersonArea")
+        {
+            isFirstPerson = false;
+        }
     }
 
     private void MovementUpdate()
