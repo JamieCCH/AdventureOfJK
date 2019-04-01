@@ -10,7 +10,7 @@ public class TurretFire : MonoBehaviour {
 	private GameObject Player;
 	private bool firing = false;
 	private float fireTime;
-	private float coolDown = 0.35f;
+	private float coolDown = 3.5f;
 	public bool isDead = false;
 
 	AudioSource shootSound;
