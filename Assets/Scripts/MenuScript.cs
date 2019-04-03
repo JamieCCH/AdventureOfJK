@@ -24,7 +24,7 @@ public class MenuScript : MonoBehaviour
         creditBt.onClick.AddListener(buttonSound.Play);
         exitBt.onClick.AddListener(buttonSound.Play);
        
-        startBt.onClick.AddListener(() => SceneManager.LoadScene("GameLv1"));
+        startBt.onClick.AddListener(() => SceneManager.LoadScene("Game"));
         introBt.onClick.AddListener(() => SceneManager.LoadScene("Intro"));
         creditBt.onClick.AddListener(() => SceneManager.LoadScene("Credit"));
         exitBt.onClick.AddListener(exit);

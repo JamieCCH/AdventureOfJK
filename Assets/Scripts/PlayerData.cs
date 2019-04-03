@@ -8,16 +8,16 @@ public class PlayerData : MonoBehaviour {
     public int maxPickup = 5;
     private int startHealth = 100;
     public int currentHealth;
-    private bool isDamaged;
+    //private bool isDamaged;
     private bool isDead;
 
     void Start () {
         currentHealth = startHealth;
     }
 
-    private void TakeDamage(int amount)
+    public void TakeDamage(int amount)
     {
-        isDamaged = true;
+        //isDamaged = true;
         currentHealth -= amount;
         //healthSlider.value = currentHealth;
         //playerAudio.Play ();
@@ -50,6 +50,7 @@ public class PlayerData : MonoBehaviour {
         {
             TakeDamage(3);
         }
+
     }
 
     void Update () {

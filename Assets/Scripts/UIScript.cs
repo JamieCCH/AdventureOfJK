@@ -46,10 +46,10 @@ public class UIScript : MonoBehaviour {
 
     private void LateUpdate()
     {
-        //health bar adjusted
+        //adjusting health bar
         healthSlider.value = player.currentHealth;
 
-        //Pickups displayed 
+        //Pickups icon displayed
         var pickupNum = player.GetComponent<PlayerData>().pickUps;
         if (pickupedShows == pickupNum - 1)
         {
@@ -74,6 +74,8 @@ public class UIScript : MonoBehaviour {
         SceneManager.LoadScene("Menu");
     }
 
+
+    //pause menu options
     public void Choice(UnityAction exitEvent, UnityAction cancelEvent)
     {
         PauseScreen.SetActive(true);
