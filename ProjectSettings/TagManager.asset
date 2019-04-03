@@ -6,6 +6,15 @@ TagManager:
   tags:
   - Gun
   - Lightsaber
+<<<<<<< HEAD
+=======
+  - Stage
+  - PlayerHead
+  - BallIcon
+  - Pickup
+  - TurretBullet
+  - Mamalien
+>>>>>>> MILESTONE-2---ALPHA
   layers:
   - Default
   - TransparentFX

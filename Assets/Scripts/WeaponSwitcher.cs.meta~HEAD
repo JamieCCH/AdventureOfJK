@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/GameManager.cs.meta:Assets/Scripts/GameManager.cs.meta
+guid: fb450f11007ea4272a6cedf3a9c8566a
+=======
+guid: 66b1a34a15c59414b9dafcacaab7b5c9
+>>>>>>> MILESTONE-2---ALPHA:Assets/Scripts/WeaponSwitcher.cs.meta:Assets/Scripts/WeaponSwitcher.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

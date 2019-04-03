@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 
 public class PlayerController : MonoBehaviour {
@@ -24,8 +26,14 @@ public class PlayerController : MonoBehaviour {
     private Animator playerAnim;
 
     private Rigidbody m_rb;
+<<<<<<< HEAD
     private List<Collider> m_collisions = new List<Collider>();
 
+=======
+    private List<Collider> m_collisions = new List<Collider>();
+
+    public bool isFirstPerson = false;
+>>>>>>> MILESTONE-2---ALPHA
 
     void Start()
     {
@@ -83,7 +91,6 @@ public class PlayerController : MonoBehaviour {
             }
             if (m_collisions.Count == 0) { isGrounded = false; }
         }
-
     }
 
     private void OnCollisionExit(Collision collision)
@@ -118,12 +125,20 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+<<<<<<< HEAD
     //removed it after milestone 1 feedback
     private void TankMoveMode()
+=======
+    private void DirectMoveMode()
+>>>>>>> MILESTONE-2---ALPHA
     {
         float z = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
 
+        m_currentV = Mathf.Lerp(m_currentV, z, Time.deltaTime * interpolation);
+        m_currentH = Mathf.Lerp(m_currentH, x, Time.deltaTime * interpolation);
+
+<<<<<<< HEAD
         m_currentV = Mathf.Lerp(m_currentV, z, Time.deltaTime * interpolation);
         m_currentH = Mathf.Lerp(m_currentH, x, Time.deltaTime * interpolation);
 
@@ -165,6 +180,56 @@ public class PlayerController : MonoBehaviour {
     {
         DirectMoveMode();
 
+=======
+        Transform CurrentCamera;
+
+        if (isFirstPerson)
+        {
+            transform.position += transform.forward * m_currentV * moveSpeed * Time.deltaTime;
+            transform.Rotate(0, m_currentH * rotationSpeed * Time.deltaTime, 0);
+
+            playerAnim.SetFloat("MoveSpeed", m_currentV);
+        }
+        else
+        {
+            CurrentCamera = GameObject.Find("Main Camera").GetComponent<Camera>().transform;
+            Vector3 direction = CurrentCamera.forward * m_currentV + CurrentCamera.right * m_currentH;
+            float directionLength = direction.magnitude;
+            direction.y = 0;
+            direction = direction.normalized * directionLength;
+
+            if (direction != Vector3.zero)
+            {
+                m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * interpolation);
+                transform.rotation = Quaternion.LookRotation(m_currentDirection);
+                transform.position += m_currentDirection * moveSpeed * Time.deltaTime;
+                playerAnim.SetFloat("MoveSpeed", direction.magnitude);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //In a smaller area, switch to first person view
+        if (other.gameObject.name == "FirstPersonArea")
+        {
+            isFirstPerson = true;
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "FirstPersonArea")
+        {
+            isFirstPerson = false;
+        }
+    }
+
+    private void MovementUpdate()
+    {
+        DirectMoveMode();
+>>>>>>> MILESTONE-2---ALPHA
         JumpingAndLanding();
     }
 

@@ -83,7 +83,11 @@ public class WeaponSwitcher : MonoBehaviour {
        
 
         //switch weapon
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.Tab))
+=======
+        if (Input.GetKeyDown(KeyCode.Tab)||Input.GetKeyDown(KeyCode.Delete))
+>>>>>>> MILESTONE-2---ALPHA
         {
             if (m_weaponSelected == WeaponSelected.Lightsaber)
             {
