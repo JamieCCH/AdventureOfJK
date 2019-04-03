@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 public class MenuScript : MonoBehaviour
 {
@@ -27,11 +23,11 @@ public class MenuScript : MonoBehaviour
         startBt.onClick.AddListener(() => SceneManager.LoadScene("Game"));
         introBt.onClick.AddListener(() => SceneManager.LoadScene("Intro"));
         creditBt.onClick.AddListener(() => SceneManager.LoadScene("Credit"));
-        exitBt.onClick.AddListener(exit);
+        exitBt.onClick.AddListener(Exit);
     }
 
 
-    void exit()
+    void Exit()
     {
         Debug.Log("Quit Game!!");
         Application.Quit();

@@ -9,7 +9,7 @@ public class PlayerData : MonoBehaviour {
     private int startHealth = 100;
     public int currentHealth;
     //private bool isDamaged;
-    private bool isDead;
+    public bool isDead;
 
     void Start () {
         currentHealth = startHealth;
@@ -25,12 +25,8 @@ public class PlayerData : MonoBehaviour {
         if (currentHealth <= 0 && !isDead)
         {
             //Death();
+            isDead = true;
         }
-    }
-
-    private void Death()
-    {
-
     }
 
     private void OnCollisionEnter(Collision collision)

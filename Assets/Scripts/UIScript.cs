@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
 
 public class UIScript : MonoBehaviour {
@@ -41,6 +38,11 @@ public class UIScript : MonoBehaviour {
         if (PauseScreen.activeSelf == true)
         {
             Choice(Exit, ClosePanel);
+        }
+
+        if (player.isDead)
+        {
+            SceneManager.LoadScene("GameLose");
         }
     }
 

@@ -83,7 +83,7 @@ public class WeaponSwitcher : MonoBehaviour {
        
 
         //switch weapon
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab)||Input.GetKeyDown(KeyCode.Delete))
         {
             if (m_weaponSelected == WeaponSelected.Lightsaber)
             {

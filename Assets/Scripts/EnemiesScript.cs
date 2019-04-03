@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemiesScript : MonoBehaviour {
 
-    private Rigidbody m_rb;
     private Animator m_anim;
 
     private bool isSeek;
@@ -24,11 +23,10 @@ public class EnemiesScript : MonoBehaviour {
 
     PlayerData playerHealth;
 
-    public int damageTake = 5;
+    private int damageTake = 8;
 
     void Start () {
         m_anim = gameObject.GetComponent<Animator>();
-        m_rb = gameObject.GetComponent<Rigidbody>();
         FavTarget = GameObject.FindWithTag("Player");
         playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerData>();
     }
