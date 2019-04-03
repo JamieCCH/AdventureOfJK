@@ -38,6 +38,7 @@ public class PlayerData : MonoBehaviour {
             {
                 pickUps++;
                 Destroy(collision.gameObject);
+                Debug.Log(pickUps);
             }
         }
 

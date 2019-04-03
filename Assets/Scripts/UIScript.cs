@@ -44,13 +44,13 @@ public class UIScript : MonoBehaviour {
         {
             SceneManager.LoadScene("GameLose");
         }
+
+        //adjusting health bar
+        healthSlider.value = player.currentHealth;
     }
 
     private void LateUpdate()
     {
-        //adjusting health bar
-        healthSlider.value = player.currentHealth;
-
         //Pickups icon displayed
         var pickupNum = player.GetComponent<PlayerData>().pickUps;
         if (pickupedShows == pickupNum - 1)
@@ -58,6 +58,11 @@ public class UIScript : MonoBehaviour {
             var ballImg = BallIcons[pickupedShows].GetComponent<Image>();
             ballImg.color = new Color(0.035f, 1f, 1f, 1f);
             pickupedShows++;
+        }
+
+        if(pickupNum == 5)
+        {
+            SceneManager.LoadScene("GameWin");
         }
     }
 
