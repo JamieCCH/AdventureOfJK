@@ -3,18 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Gun
-  - Lightsaber
-<<<<<<< HEAD
-=======
-  - Stage
-  - PlayerHead
-  - BallIcon
-  - Pickup
-  - TurretBullet
-  - Mamalien
->>>>>>> MILESTONE-2---ALPHA
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -24,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 

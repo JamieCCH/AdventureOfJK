@@ -9,19 +9,12 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public Transform lookAt;
     public Transform camTransform;
-<<<<<<< HEAD:Assets/Scripts/ThirdPersonCamera.cs
-    public float distance = 6.0f;
 
-    private float currentX = 0.0f;
-    private float currentY = 20.0f;
-
-=======
     public float distance = 10.0f;
 
     private float currentX = 30.0f;
     private float currentY = 10.0f;
-
->>>>>>> MILESTONE-2---ALPHA:Assets/Scripts/ThirdPersonCamera.cs
+    
 
     private void Start()
     {
